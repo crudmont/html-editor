@@ -1,26 +1,19 @@
 <!doctype html>
-
 <html>
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>HTML Editor</title>
+        <title>html-editor</title>
     </head>
-
     <body>
-
         <style>
-
-            html
-            {
+            html {
                 height: 100%;
                 padding: 0;
                 margin: 0;
             }
 
-            body
-            {
+            body {
                 display: flex;
                 flex-direction: column;
                 height: 100%;
@@ -28,8 +21,7 @@
                 margin: 0;
             }
 
-            textarea
-            {
+            textarea {
                 padding: 10px;
                 resize: none;
                 width: calc( 100% - 20px );
@@ -38,21 +30,18 @@
                 border: 0;
             }
 
-            textarea:focus
-            {
+            textarea:focus {
                 outline: none;
             }
 
-            #codeframe
-            {
+            #codeframe {
                 margin: 0;
                 border: 0;
                 width: 100%;
                 height: 100%;
             }
 
-            .controls
-            {
+            .controls {
                 border-top   : 1px solid #808080;
                 border-bottom: 1px solid #808080;
                 padding: 10px;
@@ -61,8 +50,8 @@
                 min-height: 23px;
             }
 
-            .controls a, .controls label
-            {
+            .controls a, 
+            .controls label {
                 text-decoration: none;
                 color: #000000;
                 user-select: none;
@@ -70,14 +59,15 @@
                 cursor: pointer;
             }
 
-            .controls a:hover, .controls label:hover
-            {
+            .controls a:hover,
+            .controls label:hover {
                 background: #f0f0f0;
             }
-
         </style>
 
-<textarea id=data><!doctype html>
+<textarea id=data>
+
+<!doctype html>
 <html>
  <body>
 
@@ -98,7 +88,9 @@
   </span>
 
  </body>
-</html></textarea>
+</html>
+
+</textarea>
 
         <div class=controls>
             <label>
@@ -106,9 +98,8 @@
                 realtime
             </label> |
             <a href=# onClick="update()">update</a> |
-            <a href=# onClick="goFullscreen()" >fullscreen</a> |
             <a href=# onClick="render()" >render</a> |
-            <a href="https://github.com/no-gravity/html_editor"
+            <a href="https://github.com/crudmont/html-editor"
                target=_blank>github</a>
         </div>
         <iframe id=codeframe style="width: 100%; height: 100%"></iframe>
@@ -117,8 +108,7 @@
 
         <script>
 
-            function update()
-            {
+            function update() {
                 let newIframe = document.createElement('iframe');
                 document.body.replaceChild(
                     newIframe,
@@ -132,19 +122,7 @@
                 outty.close();
             };
 
-            function goFullscreen()
-            {
-                outWin= window.open()
-                outWin.focus();
-                let outty = outWin.document;
-                outty.open();
-                let inny=document.getElementById("data");
-                outty.write(inny.value);
-                outty.close();
-            }
-
-            function realtime()
-            {
+            function realtime() {
                 if (!document.querySelector("#realtime").checked) return;
                 update();
             }
